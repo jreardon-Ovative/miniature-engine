@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	// Measure a view of product details. This example assumes the detail view occurs on pageload,
+	// and also tracks a standard pageview of the details page.
+	dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+	dataLayer.push({
+	'event': 'productListPageview',
+	  'ecommerce': {
+	    'currencyCode': 'EUR',                       // Local currency is optional.
+	    'impressions': [
+	     {
+	       'name': 'Triblend Android T-Shirt',       // Name or ID is required.
+	       'id': '12345',
+	       'price': '15.25',
+	       'brand': 'Google',
+	       'category': 'Apparel',
+	       'variant': 'Gray',
+	       'list': 'Search Results',
+	       'position': 1
+	     },
+	     {
+	       'name': 'Donut Friday Scented T-Shirt',
+	       'id': '67890',
+	       'price': '33.75',
+	       'brand': 'Google',
+	       'category': 'Apparel',
+	       'variant': 'Black',
+	       'list': 'Search Results',
+	       'position': 2
+	     }]
+	  }
+	});
+function clickFirstItem() {
+	dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+
+	dataLayer.push({
+	'event': 'productClick',
+	  'ecommerce': {
+	    'click': {
+	    	'products': [{
+		       'name': 'Triblend Android T-Shirt',       // Name or ID is required.
+		       'id': '12345',
+		       'price': '15.25',
+		       'brand': 'Google',
+		       'category': 'Apparel',
+		       'variant': 'Gray',
+		       'list': 'Search Results',
+		       'position': 1
+	     	}]
+		  }
+		}
+	})
+}
+function clickSecondItem() {
+	dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+	dataLayer.push({
+	'event': 'productClick',
+	  'ecommerce': {
+	    'click': {
+	    	'products': [{
+		       'name': 'Donut Friday Scented T-Shirt',
+		       'id': '67890',
+		       'price': '33.75',
+		       'brand': 'Google',
+		       'category': 'Apparel',
+		       'variant': 'Black',
+		       'list': 'Search Results',
+		       'position': 2
+	     	}]
+		  }
+		}
+	})
+}
+</script>
+
+	
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXX');</script>
+<!-- End Google Tag Manager -->
+	<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5FR6ZM9');</script>
+<!-- End Google Tag Manager -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cool Stuff Store</title>
+</head>
+<body>
+	<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FR6ZM9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+	
+	<h1>Product Listing Page Page</h1>
+	<h2>Triblend Android T-Shirt</h2>
+	<ul>
+		<li>Price: $15.25</li>
+		<li>Color: Grey</li>
+	</ul>
+	
+	<button onclick="clickFirstItem()">View First T-Shirt</button>
+	<hr>
+	<h2>Donut Friday Scented T-Shirt</h2>
+	<ul>
+		<li>Price: $33.75</li>
+		<li>Color: Black</li>
+	</ul>
+	
+	<button onclick="clickSecondItem()">View Second T-Shirt</button>
+	
+</body>
+</html>
