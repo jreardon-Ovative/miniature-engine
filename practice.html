@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	// Measure a view of product details. This example assumes the detail view occurs on pageload,
+	// and also tracks a standard pageview of the details page.
+	dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+	dataLayer.push({
+	'event': 'productDetailPageview',
+	  'ecommerce': {
+	    'detail': {
+	      'actionField': {'list': 'Apparel Gallery'},    // 'detail' actions have an optional list property.
+	      'products': [{
+	        'name': 'Triblend Android T-Shirt',         // Name or ID is required.
+	        'id': '12345',
+	        'price': '15.25',
+	        'brand': 'Google',
+	        'category': 'Apparel',
+	        'variant': 'Gray'
+	       }]
+	     }
+	   }
+	});
+	function addToCart() {
+		// Measure adding a product to a shopping cart by using an 'add' actionFieldObject
+		// and a list of productFieldObjects.
+		dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+		dataLayer.push({
+		  'event': 'addToCart',
+		  'ecommerce': {
+		    'currencyCode': 'EUR',
+		    'add': {                                // 'add' actionFieldObject measures.
+		      'products': [{                        //  adding a product to a shopping cart.
+		        'name': 'Triblend Android T-Shirt',
+		        'id': '12345',
+		        'price': '15.25',
+		        'brand': 'Google',
+		        'category': 'Apparel',
+		        'variant': 'Gray',
+		        'quantity': 1,
+		        'dimension1': 'Not Suggested Sell'
+		       }]
+		    }
+		  }
+		});
+	}
+	function suggestedSell() {
+		// Measure adding a product to a shopping cart by using an 'add' actionFieldObject
+		// and a list of productFieldObjects.
+		dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+		dataLayer.push({
+		  'event': 'addToCart',
+		  'ecommerce': {
+		    'currencyCode': 'EUR',
+		    'add': {                                // 'add' actionFieldObject measures.
+		      'products': [{                        //  adding a product to a shopping cart.
+		        'name': 'Triblend Android T-Shirt',
+		        'id': '12345',
+		        'price': '15.25',
+		        'brand': 'Google',
+		        'category': 'Apparel',
+		        'variant': 'Gray',
+		        'quantity': 1,
+		        'dimension1': 'Suggested Sell'
+		       }]
+		    }
+		  }
+		});
+	}
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXX');</script>
+<!-- End Google Tag Manager -->
+	<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5FR6ZM9');</script>
+<!-- End Google Tag Manager -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cool Stuff Store</title>
+</head>
+<body>
+	<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FR6ZM9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+	
+	<h1>Product Detail Page</h1>
+	<h2>Triblend Android T-Shirt</h2>
+	<ul>
+		<li>Price: $15.25</li>
+		<li>Color: Grey</li>
+	</ul>
+	
+	<a href = "redirect.html">redirect</a>
+	
+	<button onclick="addToCart()">Add To Cart</button>
+	<button onclick="suggestedSell()">Suggested Sell</button>
+</body>
+</html>
