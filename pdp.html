@@ -38,7 +38,31 @@
 		        'brand': 'Google',
 		        'category': 'Apparel',
 		        'variant': 'Gray',
-		        'quantity': 1
+		        'quantity': 1,
+		        'dimension1': 'Not Suggested Sell'
+		       }]
+		    }
+		  }
+		});
+	}
+	function suggestedSell() {
+		// Measure adding a product to a shopping cart by using an 'add' actionFieldObject
+		// and a list of productFieldObjects.
+		dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+		dataLayer.push({
+		  'event': 'addToCart',
+		  'ecommerce': {
+		    'currencyCode': 'EUR',
+		    'add': {                                // 'add' actionFieldObject measures.
+		      'products': [{                        //  adding a product to a shopping cart.
+		        'name': 'Triblend Android T-Shirt',
+		        'id': '12345',
+		        'price': '15.25',
+		        'brand': 'Google',
+		        'category': 'Apparel',
+		        'variant': 'Gray',
+		        'quantity': 1,
+		        'dimension1': 'Suggested Sell'
 		       }]
 		    }
 		  }
@@ -78,6 +102,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	
 	<a href = "redirect.html">redirect</a>
 	
-	<button onclick="addToCart()">Button 1</button>
+	<button onclick="addToCart()">Add To Cart</button>
+	<button onclick="suggestedSell()">Suggested Sell</button>
 </body>
 </html>
