@@ -10,8 +10,8 @@ function purchase() {
 	// data becomes available.
 	dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
 	dataLayer.push({
+	  'event': 'purchase',
 	  'ecommerce': {
-	  	'event': 'purchase',
 	    'purchase': {
 	      'actionField': {
 	        'id': 'T12345',                         // Transaction ID. Required for purchases and refunds.
@@ -53,8 +53,8 @@ function suggestSellBuy() {
 	// data becomes available.
 	dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
 	dataLayer.push({
+	  'event': 'purchase',	
 	  'ecommerce': {
-	  	'event': 'purchase',
 	    'purchase': {
 	      'actionField': {
 	        'id': 'T12345',                         // Transaction ID. Required for purchases and refunds.
