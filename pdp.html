@@ -7,78 +7,68 @@
 	// and also tracks a standard pageview of the details page.
 	dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
 	dataLayer.push({
-	'event': 'impressions',
+	'event': 'productDetailPageview',
 	  'ecommerce': {
-	    'currencyCode': 'EUR',                       // Local currency is optional.
-	    'impressions': [
-	     {
-	       'name': 'Triblend Android T-Shirt',       // Name or ID is required.
-	       'id': '12345',
-	       'price': '15.25',
-	       'brand': 'Google',
-	       'category': 'Apparel',
-	       'variant': 'Gray',
-	       'list': 'Search Results',
-	       'position': 1,
-	       'dimension1': 'Not Suggested Sell'
-	     },
-	     {
-	       'name': 'Donut Friday Scented T-Shirt',
-	       'id': '67890',
-	       'price': '33.75',
-	       'brand': 'Google',
-	       'category': 'Apparel',
-	       'variant': 'Black',
-	       'list': 'Search Results',
-	       'position': 2,
-	       'dimension1': 'Not Suggested Sell'
-	     }]
-	  }
+	    'detail': {
+	      'actionField': {'list': 'Apparel Gallery'},    // 'detail' actions have an optional list property.
+	      'products': [{
+	        'name': 'Triblend Android T-Shirt',         // Name or ID is required.
+	        'id': '12345',
+	        'price': '15.25',
+	        'brand': 'Google',
+	        'category': 'Apparel',
+	        'variant': 'Gray',
+	        'dimension1': 'Not Suggested Sell'
+	       }]
+	     }
+	   }
 	});
-function clickFirstItem() {
-	dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
-
-	dataLayer.push({
-	'event': 'productClick',
-	  'ecommerce': {
-	    'click': {
-	    	'products': [{
-		       'name': 'Triblend Android T-Shirt',       // Name or ID is required.
-		       'id': '12345',
-		       'price': '15.25',
-		       'brand': 'Google',
-		       'category': 'Apparel',
-		       'variant': 'Gray',
-		       'list': 'Search Results',
-		       'position': 1
-	     	}]
+	function addToCart() {
+		// Measure adding a product to a shopping cart by using an 'add' actionFieldObject
+		// and a list of productFieldObjects.
+		dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+		dataLayer.push({
+		  'event': 'addToCart',
+		  'ecommerce': {
+		    'currencyCode': 'EUR',
+		    'add': {                                // 'add' actionFieldObject measures.
+		      'products': [{                        //  adding a product to a shopping cart.
+		        'name': 'Triblend Android T-Shirt',
+		        'id': '12345',
+		        'price': '15.25',
+		        'brand': 'Google',
+		        'category': 'Apparel',
+		        'variant': 'Gray',
+		        'quantity': 1,
+		        'dimension1': 'Not Suggested Sell'
+		       }]
+		    }
 		  }
-		}
-	})
-}
-function clickSecondItem() {
-	dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
-	dataLayer.push({
-	'event': 'productClick',
-	  'ecommerce': {
-	    'click': {
-	    	'products': [{
-		       'name': 'Donut Friday Scented T-Shirt',
-		       'id': '67890',
-		       'price': '33.75',
-		       'brand': 'Google',
-		       'category': 'Apparel',
-		       'variant': 'Black',
-		       'list': 'Search Results',
-		       'position': 2
-	     	}]
+		});
+	}
+	function suggestedSell() {
+		// Measure adding a product to a shopping cart by using an 'add' actionFieldObject
+		// and a list of productFieldObjects.
+		dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+		dataLayer.push({
+		  'event': 'addToCart',
+		  'ecommerce': {
+		    'currencyCode': 'EUR',
+		    'add': {                                // 'add' actionFieldObject measures.
+		      'products': [{                        //  adding a product to a shopping cart.
+		        'name': 'Triblend Android T-Shirt',
+		        'id': '12345',
+		        'price': '15.25',
+		        'brand': 'Google',
+		        'category': 'Apparel',
+		        'variant': 'Gray',
+		        'quantity': 1,
+		        'dimension1': 'Suggested Sell'
+		       }]
+		    }
 		  }
-		}
-	})
-}
-</script>
-
-	
+		});
+	}
 </script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -104,22 +94,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 	
-	<h1>Product Listing Page Page</h1>
+	<h1>Product Detail Page</h1>
 	<h2>Triblend Android T-Shirt</h2>
 	<ul>
 		<li>Price: $15.25</li>
 		<li>Color: Grey</li>
 	</ul>
 	
-	<button onclick="clickFirstItem()">View First T-Shirt</button>
-	<hr>
-	<h2>Donut Friday Scented T-Shirt</h2>
-	<ul>
-		<li>Price: $33.75</li>
-		<li>Color: Black</li>
-	</ul>
+	<a href = "index.html">Home</a>
 	
-	<button onclick="clickSecondItem()">View Second T-Shirt</button>
-	
+	<button onclick="addToCart()">Add To Cart</button>
+	<button onclick="suggestedSell()">Suggested Sell</button>
 </body>
 </html>
